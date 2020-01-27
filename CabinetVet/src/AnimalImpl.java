@@ -4,7 +4,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 public class AnimalImpl extends UnicastRemoteObject  implements Animal {
-	DossierSuivi dossier ;
+	DossierSuiviInt dossier ;
 	String mastername;
 	String name;
 	Race race;
@@ -21,9 +21,6 @@ public class AnimalImpl extends UnicastRemoteObject  implements Animal {
 		this.race = race;
 	}
 
-	public void setDesc(String s) {
-		this.dossier.setDesc(s);
-	}
 
 	public String getName() throws RemoteException {
 		return this.name;
@@ -39,6 +36,11 @@ public class AnimalImpl extends UnicastRemoteObject  implements Animal {
 	public void printID() throws RemoteException {
 		System.out.println("l animal "+this.name+" de race "+this.getRace()+" est possede par "+this.mastername+ " Description du dossier: "+ this.dossier.getDesc() );
 	
+	}
+
+	@Override
+	public DossierSuiviInt getDesc() throws RemoteException {
+		return this.dossier;
 	}
 
 

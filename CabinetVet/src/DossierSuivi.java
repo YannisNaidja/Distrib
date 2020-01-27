@@ -1,21 +1,21 @@
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
-public class DossierSuivi implements DossierSuiviInt {
+public class DossierSuivi extends UnicastRemoteObject implements DossierSuiviInt {
 	
 	String Description;
 	
-	public DossierSuivi(String d) {
+	public DossierSuivi(String d) throws RemoteException {
 		this.Description = d;
 	}
-	 public String getDesc() {
+	 public String getDesc() throws RemoteException {
 		return this.Description;
 	}
-	void setDesc(String s) {
-		this.Description = s;		
-	}
 	@Override
-	public void setDesc() {
-		// TODO Auto-generated method stub
+	public void setDesc(String s) throws RemoteException {
+		this.Description = s;
 		
 	}
-
+	
+	
 }

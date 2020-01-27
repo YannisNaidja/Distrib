@@ -14,8 +14,9 @@ public class Client {
 			Animal stub = (Animal) registry.lookup("Hello");
 			String response = stub.getName();
 			System.out.println("response: " + response);
+			DossierSuiviInt d = stub.getDesc();
 			stub.printID();
-			stub.setDesc("Mis a jour");
+			d.setDesc("modifier");
 			stub.printID();
 		} catch (Exception e) {
 			System.err.println("Client exception: " + e.toString());
